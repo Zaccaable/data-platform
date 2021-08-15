@@ -1,1 +1,3 @@
 src/platform/minio/.env
+src/platform/spark-notebook/.env
+src/jobs/to_landing/knmi/.env
