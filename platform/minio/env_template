@@ -1,0 +1,2 @@
+MINIO_ROOT_USER=desired_username
+MINIO_ROOT_PASSWORD=desired_password
