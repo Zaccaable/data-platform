@@ -26,7 +26,7 @@ def load_knmi_to_landing(base_url, source, load_date=date(1900, 1, 1)):
 
     # load in batches of a year when running a full load
     if load_date == date(1900, 1, 1):
-        batch_size = 365
+        batch_size = 30
     else:
         batch_size = 1
 

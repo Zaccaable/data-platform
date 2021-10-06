@@ -3,6 +3,7 @@ services:
   dremio:
     image: dremio/dremio-oss:latest
     container_name: dremio
+    restart: unless-stopped
     volumes:
       #- /home/jesse/data/dremio/data:/var/lib/dremio
       - dremio-data:/var/lib/dremio

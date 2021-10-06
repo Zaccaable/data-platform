@@ -1,3 +1,6 @@
-src/platform/minio/.env
-src/platform/spark-notebook/.env
-src/jobs/to_landing/knmi/.env
+*.env
+*.ipython
+*.jupyter
+*.cache
+*.ipynb_checkpoints
+*.local
