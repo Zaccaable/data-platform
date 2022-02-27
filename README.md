@@ -1,3 +1,3 @@
 # data-platform
 
-A platform to try out different data systems.
+A project to try out different technologies while venturing into the data space. 
