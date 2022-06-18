@@ -11,4 +11,5 @@ services:
       - /home/jesse/data-platform/data-platform/notebooks/:/home/jovyan/
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER}
-      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD} 
+    command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
