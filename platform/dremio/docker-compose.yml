@@ -13,7 +13,12 @@ services:
     ports:
       - "9047:9047"
       - "31010:31010"
+      - "32010:32010" 
       - "45678:45678"
 
 volumes:
   dremio-data:
+
+
+# after upgrading to newer image version run: docker exec -it dremio /opt/dremio/bin/dremio-admin upgrade 
+
