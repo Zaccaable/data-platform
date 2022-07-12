@@ -6,3 +6,6 @@
 *.local
 **example_dags**
 **/airflow/airflow/**
+notebooks/.bash_history
+notebooks/.ipython/profile_default/history.sqlite
+notebooks/.ipython/profile_default/history.sqlite

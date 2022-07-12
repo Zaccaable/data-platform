@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   dremio:
-    image: dremio/dremio-oss:latest
+    image: dremio/dremio-oss:22.0 #latest
     container_name: dremio
     restart: unless-stopped
     volumes:
