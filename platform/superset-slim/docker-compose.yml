@@ -1,0 +1,10 @@
+version: '3'
+services:
+  superset:
+    container_name: superset-slim
+#    image: jupyter/pyspark-notebook
+    build: .
+    #command: ["/app/start.sh"]
+    command: superset run -p 8088 --with-threads --reload --debugger
+    ports:
+      - "8088:8088"

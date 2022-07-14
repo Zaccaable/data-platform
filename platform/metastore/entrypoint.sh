@@ -7,7 +7,8 @@ export HADOOP_HOME=/opt/hadoop
 export HIVE_HOME=/opt/metastore
 
 export HADOOP_CLASSPATH=${HADOOP_HOME}/share/hadoop/tools/lib/aws-java-sdk-bundle-1.11.375.jar:${HADOOP_HOME}/share/hadoop/tools/lib/hadoop-aws-3.2.0.jar
-export METASTORE_DB_HOSTNAME=postgres
+#export METASTORE_DB_HOSTNAME=postgres
+export METASTORE_DB_HOSTNAME=192.168.86.192
 
 echo "Waiting for database on ${METASTORE_DB_HOSTNAME} to launch on 5432 ..."
 

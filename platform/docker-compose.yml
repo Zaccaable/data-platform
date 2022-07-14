@@ -84,7 +84,7 @@ services:
       - "8888:8888"
       - "4040-4080:4040-4080"
     volumes:
-      - ${DATA_LOCATION}-platform/data-platform/notebooks/:/home/jovyan/
+      - /home/jesse/data-platform/data-platform/notebooks/:/home/jovyan/
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD} 
@@ -94,29 +94,22 @@ services:
 # Hive metastore
 ##################################################################
 
-  metastore:
-    container_name: metastore
+  hive:
     build: metastore/
+    entrypoint: /init-hive.sh
     ports:
-      - '9083:9083' # Metastore Thrift
-    volumes:
-      - ./metastore/conf/metastore-site.xml:/opt/metastore/conf/metastore-site.xml:ro
-    environment:
-      - METASTORE_DB_HOSTNAME=postgres
-      - HADOOP_HOME=/opt/hadoop
-      - HIVE_HOME=/opt/metastore
-    depends_on:
-      - postgres
+      - "9083:9083"
+      - "10000:10000"
+    links:
+      - "postgres:postgres"
 
   postgres:
-    image: postgres
-    hostname: postgres
-    container_name: postgres
-    restart: always
+    image: postgres:10
     environment:
-      - POSTGRES_PASSWORD=postgres
-      - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_USER=hive
+      - POSTGRES_PASSWORD=hive
+      - POSTGRES_DB=metastore
     ports:
       - '5432:5432'
-    volumes:
-      - ${DATA_LOCATION}/postgres:/var/lib/postgresql/data/pgdata
+    #volumes:
+    #  - ${DATA_LOCATION}/postgres:/var/lib/postgresql/data/pgd
