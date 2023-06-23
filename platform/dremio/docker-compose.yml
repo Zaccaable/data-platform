@@ -1,7 +1,8 @@
 version: '3.5'
 services:
   dremio:
-    image: dremio/dremio-oss:22.0 #latest
+    image: dremio/dremio-oss:22.1 #latest
+    #image: dremio/dremio-oss:23.0.1
     container_name: dremio
     restart: unless-stopped
     volumes:
@@ -13,7 +14,7 @@ services:
     ports:
       - "9047:9047"
       - "31010:31010"
-      - "32010:32010" 
+      - "32010:32010"
       - "45678:45678"
 
 volumes:

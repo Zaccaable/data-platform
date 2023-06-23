@@ -1,11 +1,16 @@
 *.env
 *.ipython
+**/.ipython/**
 *.jupyter
 *.cache
 *.ipynb_checkpoints
 *.local
+**/.local/**
 **example_dags**
 **/airflow/airflow/**
 notebooks/.bash_history
 notebooks/.ipython/profile_default/history.sqlite
 notebooks/.ipython/profile_default/history.sqlite
+
+**data/**
+**/spark-warehouse/**

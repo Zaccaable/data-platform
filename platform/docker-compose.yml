@@ -83,33 +83,30 @@ services:
     ports:
       - "8888:8888"
       - "4040-4080:4040-4080"
+      - "9083:9083"
+      - "10000:10000"
     volumes:
       - /home/jesse/data-platform/data-platform/notebooks/:/home/jovyan/
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD} 
     command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
+    links:
+      - "metastoredb:postgres"
 
 ##################################################################
 # Hive metastore
 ##################################################################
 
-  hive:
-    build: metastore/
-    entrypoint: /init-hive.sh
-    ports:
-      - "9083:9083"
-      - "10000:10000"
-    links:
-      - "postgres:postgres"
-
-  postgres:
-    image: postgres:10
+  metastoredb:
+    container_name: metastoredb
+    image: postgres:14
     environment:
       - POSTGRES_USER=hive
       - POSTGRES_PASSWORD=hive
       - POSTGRES_DB=metastore
+      - PGDATA=/var/lib/postgresql/data/pgdata
     ports:
       - '5432:5432'
-    #volumes:
-    #  - ${DATA_LOCATION}/postgres:/var/lib/postgresql/data/pgd
+#    volumes:
+#      - ${DATA_LOCATION}/metastoredb/:/var/lib/postgresql/data
