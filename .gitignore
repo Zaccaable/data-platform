@@ -14,3 +14,6 @@ notebooks/.ipython/profile_default/history.sqlite
 
 **data/**
 **/spark-warehouse/**
+notebooks/.ipython/profile_default/history.sqlite
+notebooks/.local/share/jupyter/nbsignatures.db
+platform/superset
